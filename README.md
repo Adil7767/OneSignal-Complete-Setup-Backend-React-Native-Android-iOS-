@@ -23,7 +23,7 @@ In OneSignal -> Settings -> Android (Firebase):
 - Connect Firebase project used by your Android app.
 - Use FCM HTTP v1 (recommended).
 - Upload Firebase service account JSON (or follow OneSignal Firebase connect flow).
-- Ensure Android package name exactly matches app package (example: `com.easystream`).
+- Ensure Android package name exactly matches app package (example: `com.myapp`).
 
 ### 1.2 iOS (APNs)
 
@@ -34,7 +34,7 @@ In OneSignal -> Settings -> Apple iOS (APNs):
 - Fill:
   - Key ID: from APNs key
   - Team ID: from Apple Developer membership
-  - App Bundle ID: must exactly match iOS bundle identifier (example: `com.easystream`)
+  - App Bundle ID: must exactly match iOS bundle identifier (example: `com.myapp`)
 
 If needed, see `IOS_ONESIGNAL_SETUP.md` for Apple-specific details.
 
@@ -42,7 +42,7 @@ If needed, see `IOS_ONESIGNAL_SETUP.md` for Apple-specific details.
 
 ## 2) Required Environment Variables
 
-## 2.1 Frontend (`easystream-app/.env`)
+## 2.1 Frontend (`myapp-app/.env`)
 
 ```dotenv
 ONESIGNAL_APP_ID=<ONESIGNAL_APP_UUID>
@@ -54,7 +54,7 @@ Notes:
 - Frontend SDK only needs `ONESIGNAL_APP_ID`.
 - Keep REST API keys on backend only for sending server-originated notifications.
 
-## 2.2 Backend (`easystream-backend/.env.*`)
+## 2.2 Backend (`myapp-backend/.env.*`)
 
 ```dotenv
 # Push notifications
@@ -146,9 +146,9 @@ Routes:
 
 Files:
 
-- Routes: `easystream-backend/src/routes/deviceRoutes.js`
-- Controller: `easystream-backend/src/controllers/deviceController.js`
-- Mounted at: `easystream-backend/src/routes/index.js` (path `/devices`)
+- Routes: `myapp-backend/src/routes/deviceRoutes.js`
+- Controller: `myapp-backend/src/controllers/deviceController.js`
+- Mounted at: `myapp-backend/src/routes/index.js` (path `/devices`)
 
 Device model stores:
 
@@ -161,7 +161,7 @@ Device model stores:
 
 Current sender:
 
-- `easystream-backend/src/services/notificationService.js`
+- `myapp-backend/src/services/notificationService.js`
 
 It uses:
 
@@ -222,7 +222,7 @@ Must match everywhere:
 
 Filter by:
 
-- `[EasyStream/push]`
+- `[myapp/push]`
 
 Expected sequence (real device):
 
